@@ -175,8 +175,56 @@ html {
 
 section {
   width: 100%;
-  flex: 1; }
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  section .logo {
+    margin-top: 2.50667rem;
+    margin-bottom: 1.52rem; }
+    section .logo img {
+      width: 1.86667rem;
+      height: 1.86667rem; }
+  section .login-tel,
+  section .register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 7%;
+    border: 1px solid #d02d23;
+    border-radius: 2.66667rem;
+    margin-bottom: 7%;
+    color: #d02d23;
+    font-size: 0.4rem; }
+  section span {
+    font-size: 0.26667rem;
+    color: #b8b8b8;
+    border-bottom: 1px solid #b8b8b8; }
 
 footer {
   width: 100%;
-  height: 3.2rem; }
+  font-size: 0.26667rem;
+  height: 2.66667rem;
+  display: flex;
+  flex-direction: column; }
+  footer h5 {
+    width: 100%;
+    text-align: center;
+    color: #a4a4a4; }
+  footer > div {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    footer > div div {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #989897; }
+      footer > div div i.iconfont {
+        font-size: 0.8rem; }
