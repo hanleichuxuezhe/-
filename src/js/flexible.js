@@ -1,3 +1,5 @@
+'use strict';
+
 (function (d, f) {
     var s = d.document;
     var c = s.documentElement;
@@ -15,11 +17,11 @@
             var h = j.match(/maximum\-dpr=([\d\.]+)/);
             if (q) {
                 a = parseFloat(q[1]);
-                r = parseFloat((1 / a).toFixed(2))
+                r = parseFloat((1 / a).toFixed(2));
             }
             if (h) {
                 a = parseFloat(h[1]);
-                r = parseFloat((1 / a).toFixed(2))
+                r = parseFloat((1 / a).toFixed(2));
             }
         }
     }
@@ -28,32 +30,32 @@
         var o = d.navigator.appVersion.match(/iphone/gi);
         var k = d.devicePixelRatio;
         if (k >= 3 && (!a || a >= 3)) {
-            a = 3
+            a = 3;
         } else {
             if (k >= 2 && (!a || a >= 2)) {
-                a = 2
+                a = 2;
             } else {
-                a = 1
+                a = 1;
             }
         }
-        r = 1 / a
+        r = 1 / a;
     }
     c.setAttribute("data-dpr", a);
     m = s.createElement("meta");
     m.setAttribute("name", "viewport");
     m.setAttribute("content", "width=device-width, initial-scale=" + r + ", maximum-scale=" + r + ", minimum-scale=" + r + ", user-scalable=no");
     if (c.firstElementChild) {
-        c.firstElementChild.appendChild(m)
+        c.firstElementChild.appendChild(m);
     } else {
         var g = s.createElement("div");
         g.appendChild(m);
-        s.write(g.innerHTML)
+        s.write(g.innerHTML);
     }
 
     function i() {
         var u = c.getBoundingClientRect().width;
         if (u / a > 540) {
-            u = 540 * a
+            u = 540 * a;
         }
         var w = u / 10;
         c.style.fontSize = w + "px";
@@ -63,25 +65,25 @@
         console.log("flexible.refreshRem: fontSize && finalFontSize => ", v, t);
         if (v !== t) {
             c.style.fontSize = v * (v / t) + "px";
-            console.log("flexible.refreshRem.fixed: fontSize  => ", c.style.fontSize)
+            console.log("flexible.refreshRem.fixed: fontSize  => ", c.style.fontSize);
         }
     }
     d.addEventListener("resize", function () {
         clearTimeout(l);
-        l = setTimeout(i, 300)
+        l = setTimeout(i, 300);
     }, false);
     d.addEventListener("pageshow", function (t) {
         if (t.persisted) {
             clearTimeout(l);
-            l = setTimeout(i, 300)
+            l = setTimeout(i, 300);
         }
     }, false);
     if (s.readyState === "complete") {
-        s.body.style.fontSize = 12 * a + "px"
+        s.body.style.fontSize = 12 * a + "px";
     } else {
         s.addEventListener("DOMContentLoaded", function (t) {
-            s.body.style.fontSize = 12 * a + "px"
-        }, false)
+            s.body.style.fontSize = 12 * a + "px";
+        }, false);
     }
     i();
     e.dpr = d.dpr = a;
@@ -89,15 +91,15 @@
     e.rem2px = function (u) {
         var t = parseFloat(u) * this.rem;
         if (typeof u === "string" && u.match(/rem$/)) {
-            t += "px"
+            t += "px";
         }
-        return t
+        return t;
     };
     e.px2rem = function (u) {
         var t = parseFloat(u) / this.rem;
         if (typeof u === "string" && u.match(/px$/)) {
-            t += "rem"
+            t += "rem";
         }
-        return t
-    }
+        return t;
+    };
 })(window, window["lib"] || (window["lib"] = {}));
